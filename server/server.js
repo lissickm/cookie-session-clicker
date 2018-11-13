@@ -1,32 +1,28 @@
-
+const cookieSession = require('cookie-session');
 const express = require('express');
-require('dotenv').config();
-
+ 
 const app = express();
-const bodyParser = require('body-parser');
-const sessionMiddleware = require('./modules/session-middleware');
+ 
+app.use(cookieSession({
+  name: 'session',
+  keys: ['session'],
+ 
+  // Cookie Options
+  maxAge: 2 * 60 * 1000 // 2 minutes
+}));
 
-const passport = require('./strategies/user.strategy');
+app.post('/add-click', (req,res) => {
+  req.session.totalClicks = req.session.totalClicks || 0;
+  req.session.totalClicks += 1;
+  console.log(req.session.totalClicks);
+  res.sendStatus(200);
+});
 
-// Route includes
-const userRouter = require('./routes/user.router');
-
-// Body parser middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// Passport Session Configuration //
-app.use(sessionMiddleware);
-
-// start up passport sessions
-app.use(passport.initialize());
-app.use(passport.session());
-
-/* Routes */
-app.use('/api/user', userRouter);
-
-// Serve static files
-app.use(express.static('build'));
+app.get('/get-clicks', (req, res) => {
+  req.session.totalClicks = req.session && req.session.totalClicks || 0;
+  const {totalClicks} = req.session;
+  res.send({totalClicks});
+});
 
 // App Set //
 const PORT = process.env.PORT || 5000;
