@@ -1,8 +1,10 @@
-# Cookie Clicker
+# Cookie (Session) Clicker
 
 Our hot new game called "Cookie Clicker" is taking off!
 
 The best gamers in the world are now all racing to get high scores in Cookie Clicker! The bad new is that they have started to cheat the system. They found they can edit the client-side code to make their score whatever they wanted!
+
+If you'd like a little more context on sessions before diving in, we included [some session documentation](/documentation/sessions.md) that is a good place to start.
 
 ## Base
 

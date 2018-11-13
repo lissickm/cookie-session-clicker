@@ -1,7 +1,10 @@
 const cookieSession = require('cookie-session');
 const express = require('express');
+const bodyParser = require('body-parser');
  
 const app = express();
+
+app.use(bodyParser.json());
  
 app.use(cookieSession({
   name: 'session',
@@ -14,7 +17,6 @@ app.use(cookieSession({
 app.post('/add-click', (req,res) => {
   req.session.totalClicks = req.session.totalClicks || 0;
   req.session.totalClicks += 1;
-  console.log(req.session.totalClicks);
   res.sendStatus(200);
 });
 
