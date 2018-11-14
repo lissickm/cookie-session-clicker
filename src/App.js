@@ -30,15 +30,32 @@ class App extends Component {
       });
   }
 
+  editUsername = () => {
+    this.setState({
+      usernameIsEditable: true,
+    });
+  }
+
+  saveUsername = () => {
+    this.setState({
+      usernameIsEditable: false,
+    });
+  }
+
   render() {
     return (
       <div>
         <center>
           <h1>Click the Cookie!!</h1>
           <p>
-            Username:
             {/* Username should go here */}
-            <button>Edit Username</button>
+            {/* The next block of code is conditional rendering.
+            Look at the documentation https://reactjs.org/docs/conditional-rendering.html
+            if this is new to you. */}
+            {this.state.usernameIsEditable ?
+              <button onClick={this.saveUsername}>Save Username</button> :
+              <button onClick={this.editUsername}>Edit Username</button>
+            }
           </p>
           <p>{this.state.clickCount}</p>
           <span

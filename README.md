@@ -8,6 +8,8 @@ If you'd like a little more context on sessions before diving in, we included [s
 
 ## Base
 
+To start this project, open two terminal tabs. Run `npm run client` in one, and run `npm run server` in the other.
+
 We need to protect our game. We're going to store the user data on the server, but we only want to give users the data that they own. It's time to use a session! Our team has started the transition to the new session. The score is now stored in a session on the server.
 
 You have been brought in as the expert after your excellent work on the previous `name` implementation. Your job is to re-implement allowing users to see their names on the DOM:
