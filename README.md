@@ -30,4 +30,4 @@ To see this working, open a second browser window. Then open an incognito window
 - [ ] (BIG stretch) Add a password field to `App.js` that gets sent along with the username in `req.body` in every request. The post and get requests should only work if the username and password match in the database.
     - [ ] Someone posting for the first time should be added to the database with a `click_count` of `1` (since they just hit the post for the first time)
     - [ ] Someone with a username already in the database, should have their `click_count` increase by `1`
-- [ ] (BIG BIG stretch) After the first post, we want to stop storing the password on the client side. Remove it from the DOM and don't pass it in `req.body`. Instead, store the password on session on the server.
+- [ ] (BIG BIG stretch) After the first post, we want to stop storing the password on the client side. Remove it from the DOM and don't pass it in `req.body`. Instead, store the password on session on the server.# cookie-session-clicker
