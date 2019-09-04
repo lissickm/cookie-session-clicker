@@ -16,6 +16,7 @@ app.use(cookieSession({
   maxAge: 2 * 60 * 1000 // 2 minutes
 }));
 
+
 app.post('/add-click', (req,res) => {
   req.session.totalClicks = req.session.totalClicks || 0;
   req.session.totalClicks += 1;
